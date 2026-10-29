@@ -21,6 +21,7 @@ Environment variables must start with the `CMM_` prefix, followed by the configu
 
 #### Smart Type Casting
 The system automatically casts environment variable values to the correct data type based on the existing value in the YAML file:
+
 - **Booleans**: `true`/`false` (case-insensitive)
 - **Numbers**: Automatically detected as `int` or `float`
 - **Strings**: Default fallback
@@ -60,6 +61,7 @@ providers:
 
 ### Managing Configuration via CLI
 You can modify the active provider without editing the file manually:
+
 ```bash
 # Set the active provider to vllm
 cmm provider set vllm
@@ -98,6 +100,7 @@ Scenarios are persisted in `~/.config/cloudmesh/scenarios.json`. While these are
 ## Server Startup Configuration
 
 The mock server (`cmm serve`) can be configured via CLI flags:
+
 - `--host`: Specify the network interface (default: `127.0.0.1`).
 - `--port`: Specify the listening port (default: `8888`).
 - `--kill-port`: Kill any process using the port before starting (default: `true`).

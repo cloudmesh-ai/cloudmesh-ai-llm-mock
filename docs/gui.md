@@ -24,6 +24,7 @@ The Admin Dashboard is the "control room" for your mock environment. It allows y
 
 #### A. Server Configuration
 Directly modify the global state of the mock server:
+
 - **Active Provider**: Switch the default provider (e.g., from `ollama` to `azure`).
 - **Failure Rate**: Set the percentage of requests that should fail with 429 or 500 errors.
 - **Latency Range**: Set the min/max delay (in seconds) for responses.
@@ -33,6 +34,7 @@ Directly modify the global state of the mock server:
 
 #### B. Scenario Manager
 Manage the keyword-based response system:
+
 - **Create/Edit/Delete**: Add new scenarios or modify existing ones to simulate safety refusals, hallucinations, or specific edge cases.
 - **Instant Updates**: Changes made in the dashboard are saved to `scenarios.json` and applied to the next request immediately.
 

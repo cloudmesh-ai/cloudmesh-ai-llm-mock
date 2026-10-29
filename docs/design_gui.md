@@ -52,6 +52,7 @@ The User GUI simulates a real-world LLM chat application.
 
 ### 4.2 State Management
 Since the server is a singleton, a global `ServerState` object will be implemented in `base_server.py` to track:
+
 - `active_provider`: Current default provider.
 - `failure_rate`: Probability of simulated error.
 - `latency_range`: Tuple of (min_delay, max_delay).

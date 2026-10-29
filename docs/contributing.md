@@ -22,6 +22,7 @@ To simulate a new LLM provider (e.g., a mock for a new cloud offering), follow t
 ## Improving Mock Realism
 
 We encourage contributors to make the mock responses more realistic. Instead of simple strings, consider:
+
 - **Using Scenario Templates**: Add new default scenarios to `scenarios.py` to handle specific user intents.
 - **Adding Random Delays**: Implement custom `get_model_speed()` logic in your provider to simulate different model sizes.
 - **Implementing Simulated Error Codes**: Ensure your `ProviderQuirkProfile` maps HTTP status codes (429, 500, etc.) to the provider's authentic error codes.
@@ -29,6 +30,7 @@ We encourage contributors to make the mock responses more realistic. Instead of 
 ## Testing Your Changes
 
 Ensure your changes don't break existing mocks:
+
 ```bash
 # Run unit tests for providers
 PYTHONPATH=. pytest tests/unit
