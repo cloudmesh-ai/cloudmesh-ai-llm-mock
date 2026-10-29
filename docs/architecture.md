@@ -6,6 +6,7 @@ Cloudmesh AI llm-mock is designed as a **Mock Service**, providing a thin, OpenA
 
 ### 1. Mock API Server (FastAPI)
 The server implements the standard OpenAI REST API. It acts as the entry point for external applications.
+
 - **Request Validation**: Uses Pydantic to ensure incoming requests match the OpenAI specification.
 - **Routing**: Maps API endpoints (like `/v1/chat/completions`) to the internal provider logic.
 - **Dynamic Dispatch**: Routes requests to different `BaseProvider` implementations based on the `model` parameter in the request.
@@ -13,6 +14,7 @@ The server implements the standard OpenAI REST API. It acts as the entry point f
 
 ### 2. The Chaos Engine
 Located within the server state, the Chaos Engine intercepts requests to simulate real-world instability:
+
 - **Failure Injection**: Randomly injects 429 (Too Many Requests) or 500 (Internal Server Error) responses based on a configurable failure rate.
 - **Latency Simulation**: Adds a random delay within a specified range to test client-side timeouts and loading states.
 - **TPM & Context Enforcement**: Tracks "Tokens Per Minute" (TPM) and maximum context window size, returning 429 or 400 errors when limits are exceeded.
@@ -21,12 +23,14 @@ Located within the server state, the Chaos Engine intercepts requests to simulat
 
 ### 3. Scenario Manager
 To provide high-fidelity responses, cmm uses a keyword-based scenario system:
+
 - **Scenario Templates**: Predefined response patterns (e.g., "Safety Refusal", "Hallucination").
 - **Keyword Matching**: The manager scans the user prompt for specific keywords. If a match is found, the corresponding scenario template is used instead of the generic response.
 - **Runtime Management**: Scenarios can be created, edited, or deleted via the Admin GUI and are persisted to `~/.config/cloudmesh/scenarios.json`.
 
 ### 4. Provider Abstraction Layer
 To simulate different LLM behaviors, the project uses a provider pattern:
+
 - **`BaseProvider`**: An abstract base class defining the required interface (`prompt`, `list_models`, `tokenize`).
 - **Concrete Providers**: Specific implementations (e.g., `OllamaProvider`, `AnthropicProvider`) that define their own model lists and quirk profiles.
 
